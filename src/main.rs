@@ -2,6 +2,9 @@ use std::fs;
 use std::io::prelude::*;
 use std::io::{self, BufReader};
 use std::str;
+extern crate colored;
+
+use colored::*;
 
 fn main() -> std::io::Result<()> {
   let tty = fs::OpenOptions::new()
@@ -27,7 +30,7 @@ fn main() -> std::io::Result<()> {
       break;
     }
     buf.pop();
-    println!("{}", str::from_utf8(&buf).unwrap());
+    println!("{}", str::from_utf8(&buf).unwrap().blue());
     buf.clear();
   }
 
